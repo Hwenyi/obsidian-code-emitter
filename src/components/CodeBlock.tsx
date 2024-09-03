@@ -9,13 +9,13 @@ export default (props: { lang: string, code: string, sourcePath: string, autoRun
 
   const language = () => `language-${props.lang}`;
 
-  // 检测预览模式
-  const isPreviewMode = () => {
-    const previewElements = document.querySelectorAll('.markdown-preview-view');
-    return previewElements.length > 0;
+  // 检测阅读模式
+  const isReadingMode = () => {
+    const readingModeElements = document.querySelectorAll('.markdown-preview-view');
+    return readingModeElements.length > 0;
   };
 
-  if (isPreviewMode()) {
+  if (isReadingMode()) {
     return null;
   }
 

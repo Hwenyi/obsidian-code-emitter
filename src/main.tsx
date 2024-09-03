@@ -1,3 +1,4 @@
+
 import { Plugin, type App, type PluginManifest } from 'obsidian';
 import { createStore, unwrap, type Store, type SetStoreFunction  } from 'solid-js/store';
 import { render } from 'solid-js/web';
@@ -30,13 +31,13 @@ export default class CodeEmitterPlugin extends Plugin {
       }
     ));
 
-    // 检测预览模式
-    const isPreviewMode = () => {
-      const previewElements = document.querySelectorAll('.markdown-preview-view');
-      return previewElements.length > 0;
+    // 检测阅读模式
+    const isReadingMode = () => {
+      const readingModeElements = document.querySelectorAll('.markdown-preview-view');
+      return readingModeElements.length > 0;
     };
 
-    if (!isPreviewMode()) {
+    if (!isReadingMode()) {
       Object.keys(backend).forEach(lang => {
         if (lang.includes('+') || lang.includes('#')) {
           return;
