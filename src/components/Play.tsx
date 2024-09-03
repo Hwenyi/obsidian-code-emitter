@@ -77,7 +77,9 @@ export default (props: {
   return <>
     <div class="code-emitter-block solid">
       <Show when={ !running() && !hasResult()}>
-        <i aria-label="play" class="button-play" onClick={run}><Icon name="play"/></i>
+        <div class="button-container"> {/* 添加这一行 */}
+          <i aria-label="play" class="button-play" onClick={run}><Icon name="play"/></i>
+        </div> {/* 添加这一行 */}
       </Show>
 
       <Show when={running() || hasResult() }>
@@ -86,7 +88,9 @@ export default (props: {
           <Show when={running()} fallback={<>
             <div>{stdio.viewEl}</div>
             <Term lines={outputs()}/>
-            <i aria-label="clear" class="button-clear" onClick={stdio.clear}><Icon name="clear"/></i>
+            <div class="button-container"> {/* 添加这一行 */}
+              <i aria-label="clear" class="button-clear" onClick={stdio.clear}><Icon name="clear"/></i>
+            </div> {/* 添加这一行 */}
           </>}>
 
             <div class="loadding">
