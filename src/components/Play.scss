@@ -7,70 +7,40 @@
 .code-emitter-block {
   white-space: nowrap;
   min-height: 1.5rem;
-  position: relative; /* 添加这一行 */
+  position: relative;
 }
 
 .code-emitter-block {
-
-  .button-play {
-    bottom: var(--size-2-2);
-    display: flex;
-
-    padding: var(--size-2-2) var(--size-2-3);
-    position: absolute;
-    inset-inline-end: var(--size-2-2);
-    border-radius: var(--radius-s);
-    cursor: var(--cursor);
-  }
-
-  .button-play:hover {
-    background-color: var(--background-modifier-hover);
-  }
-
-  .button-clear {
-    opacity: 0;
-    top: var(--size-2-2);
-    display: flex;
-    padding: var(--size-2-2) var(--size-2-3);
-    position: absolute;
-    inset-inline-end: var(--size-2-2);
-    border-radius: var(--radius-s);
-    cursor: var(--cursor);
-  }
-
-  .button-container { /* 添加这一部分 */
+  .button-container {
     display: flex;
     justify-content: center;
     position: absolute;
     bottom: var(--size-2-2);
-    width: 100%;
+    left: 0;
+    right: 0;
   }
 
-  .button-play {
-    display: none;
-  }
-
-  .button-play:hover {
-    background-color: var(--background-modifier-hover);
-  }
-
+  .button-play,
   .button-clear {
-    opacity: 0;
+    display: none;
+    padding: var(--size-2-2) var(--size-2-3);
+    border-radius: var(--radius-s);
+    cursor: var(--cursor);
+    margin: 0 var(--size-2-2);
   }
 
-  @media (hover:hover) {
-    .code-output:hover .button-clear {
-      opacity: 1;
-    }
+  .button-play:hover,
+  .button-clear:hover {
+    background-color: var(--background-modifier-hover);
   }
 }
 
 @media (hover:hover) {
-  .code-output:hover .button-clear:hover {
-    background-color: var(--background-modifier-hover);
+  .code-emitter-block:hover .button-play,
+  .code-output:hover .button-clear {
+    display: block;
   }
 }
-
 
 .loadding {
   display: flex;
